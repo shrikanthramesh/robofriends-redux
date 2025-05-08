@@ -10,9 +10,9 @@ import { thunk } from "redux-thunk";
 import { createLogger } from "redux-logger";
 import "tachyons";
 import App from "./containers/App";
-import registerServiceWorker from "./registerServiceWorker";
 import { requestRobots, searchRobots } from "./reducers";
 import "./index.css";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const logger = createLogger();
 
@@ -26,7 +26,8 @@ root.render(
   </Provider>
 );
 
-registerServiceWorker();
+serviceWorkerRegistration.register();
+
 // The old way to render the app:
 // ReactDOM.render(
 //   <Provider store={store}>
